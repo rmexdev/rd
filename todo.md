@@ -1,0 +1,6 @@
+- how to export only specific types, what is d.ts. What is the exports property in package.json for
+- add script to run lint command before every commit
+- create a template for monorepo by removing domain specific packages from this repo
+- import statements sort order
+- decide on correct license for the repo before making it public
+- downloaded corepack globally with npm, then enabled and installed pnpm using corepack. Find out how to signify that this repo uses pnpm version 11. Consider creating a docker file for this
