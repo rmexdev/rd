@@ -1,0 +1,42 @@
+{
+    "name": "@rd/source",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+        "dev": "pnpm --filter core run dev",
+        "test": "pnpm --filter core run test",
+        "lint": "eslint --fix . && prettier --write .",
+        "new-package": "f() { nx g @rd/workspace-plugin:new-package packages/$1; }; f",
+        "reset-node-modules": "./tools/scripts/reset-node-modules.sh"
+    },
+    "private": true,
+    "devDependencies": {
+        "@eslint/js": "^9.8.0",
+        "@nx/devkit": "^22.7.1",
+        "@nx/eslint": "22.6.5",
+        "@nx/eslint-plugin": "22.6.5",
+        "@nx/js": "22.6.5",
+        "@nx/plugin": "22.6.5",
+        "@nx/react": "^22.7.5",
+        "@swc-node/register": "~1.11.1",
+        "@swc/cli": "~0.8.0",
+        "@swc/core": "~1.15.5",
+        "@swc/helpers": "~0.5.18",
+        "@types/node": "20.19.9",
+        "eslint": "^9.8.0",
+        "eslint-config-prettier": "^10.0.0",
+        "jsonc-eslint-parser": "^2.1.0",
+        "nx": "22.6.5",
+        "pkgroll": "^2.27.1",
+        "prettier": "~3.6.2",
+        "tslib": "^2.3.0",
+        "tsx": "^4.23.1",
+        "typescript": "^6.0.2",
+        "typescript-eslint": "^8.40.0",
+        "vitest": "^4.1.10"
+    },
+    "workspaces": [
+        "packages/*",
+        "tools/*"
+    ]
+}

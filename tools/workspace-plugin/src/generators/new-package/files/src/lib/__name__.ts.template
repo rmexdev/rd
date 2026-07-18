@@ -1,0 +1,4 @@
+export function <%= name %>(): string {
+    console.log('hello rmex dev');
+    return '<%= name %>';
+}

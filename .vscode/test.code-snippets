@@ -1,0 +1,16 @@
+{
+	"Create a test block": {
+		"scope": "typescript",
+		"prefix": "tb",
+		"body": [
+            "import { describe, expect, it } from 'vitest';",
+            "",
+            "describe('$1', () => {",
+            "    it('should $2', () => {",
+            "        $3",
+            "    });",
+            "});",
+		],
+		"description": "Create an entity file"
+	}
+}

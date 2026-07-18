@@ -1,0 +1,13 @@
+{
+    "prettier.endOfLine": "lf",
+    "prettier.tabWidth": 4,
+    "editor.tabSize": 4,
+    "files.insertFinalNewline": true,
+    "js/ts.format.semicolons": "insert",
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.preferences.importModuleSpecifierEnding": "js",
+    "eslint.validate": [
+        "json"
+    ],
+    "cSpell.enabled": false
+}

@@ -1,0 +1,9 @@
+{
+    "generators": {
+        "new-package": {
+            "factory": "./dist/generators/new-package/new-package",
+            "schema": "./dist/generators/new-package/schema.json",
+            "description": "new-package generator"
+        }
+    }
+}
