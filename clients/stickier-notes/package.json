@@ -1,0 +1,12 @@
+{
+    "name": "@rd/stickier-notes",
+    "version": "0.0.1",
+    "private": true,
+    "devDependencies": {
+        "@tauri-apps/cli": "^2.11.4"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    }
+}

@@ -8,6 +8,12 @@
         },
         {
             "path": "./tools/workspace-plugin"
+        },
+        {
+            "path": "./clients/stickier-notes-e2e"
+        },
+        {
+            "path": "./clients/stickier-notes"
         }
     ]
 }
