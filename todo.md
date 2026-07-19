@@ -4,3 +4,4 @@
 - import statements sort order
 - decide on correct license for the repo before making it public
 - downloaded corepack globally with npm, then enabled and installed pnpm using corepack. Find out how to signify that this repo uses pnpm version 11. Consider creating a docker file for this
+- Use pkgroll to build packages wherever necessary. Uninstall if unneeded.
