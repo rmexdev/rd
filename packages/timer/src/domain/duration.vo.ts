@@ -24,7 +24,7 @@ export class Duration extends ValueObject<DurationProps> {
 
         if (this.hasCalendarUnits(props.value)
             || props.value.total('hour') > Duration.MAXIMUM_DURATION_IN_HOURS) {
-            return Result.fail(`Duration cannot be more than ${Duration.MAXIMUM_DURATION_IN_HOURS}`)
+            return Result.fail(Duration.create({ value: Temporal.Duration.from({minutes: 1}) }))
         } 
 
         return Result.ok(new Duration(props));

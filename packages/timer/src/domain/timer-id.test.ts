@@ -7,11 +7,11 @@ describe('timer-id', () => {
         '',
         '  '
     ])('should fail for invalid ids', (id) => {
-        // @ts-ignore
+        // @ts-expect-error: string | number is not assignable to number
         const timerIdResult: TimerIdResult = TimerId.create(id);
 
         expect(timerIdResult.isSuccess).toBe(false);
-        expectTypeOf(timerIdResult.error).toBeString();
+        expectTypeOf(timerIdResult.error).extract<string>().toBeString();
     });
     
     it.each([

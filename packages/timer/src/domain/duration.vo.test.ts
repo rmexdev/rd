@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, expectTypeOf } from 'vitest';
 import { Temporal } from 'temporal-polyfill';
 
 import { Duration, type DurationResult } from './duration.vo.ts';
@@ -9,11 +9,11 @@ describe('duration.vo', () => {
         undefined,
         { value: undefined }
     ])('should fail for invalid value', (value) => {
-        // @ts-ignore
+        // @ts-expect-error: Not assignable to DurationProps
         const durationResult: DurationResult = Duration.create(value);
     
         expect(durationResult.isSuccess).toBe(false);
-        expect(durationResult.error).toBeString();
+        expectTypeOf(durationResult.error).extract<string>().toBeString();
     });
     
     it.each([
@@ -27,7 +27,7 @@ describe('duration.vo', () => {
         const durationResult: DurationResult = Duration.create({ value: durationTemporal });
     
         expect(durationResult.isSuccess).toBe(false);
-        expect(durationResult.error).toBeString();
+        expectTypeOf(durationResult.error).extract<string>().toBeString();
     });
 
     describe('valid values', () => {

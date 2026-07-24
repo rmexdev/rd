@@ -48,3 +48,6 @@ Thumbs.db
 # will have compiled files and executables
 target/
 **/gen/schemas
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
