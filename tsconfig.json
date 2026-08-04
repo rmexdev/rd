@@ -8,6 +8,9 @@
         },
         {
             "path": "./tools/workspace-plugin"
+        },
+        {
+            "path": "./packages/gtd"
         }
     ]
 }
