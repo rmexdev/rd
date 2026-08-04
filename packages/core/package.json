@@ -10,6 +10,10 @@
         "typecheck": "tsc -b --noEmit"
     },
     "exports": {
+        "./domain": {
+            "types": "./src/domain/index.ts",
+            "import": "./src/domain/index.ts"
+        },
         "./result": {
             "types": "./src/result/index.ts",
             "import": "./src/result/index.ts"

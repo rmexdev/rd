@@ -20,7 +20,7 @@ export type GuardArgumentCollection = IGuardArgument[];
 
 export type GuardResult = Result<true, GuardErr>;
 
-export const combine = (guardResults: GuardResult[]): GuardResult => {
+export const combine = (...guardResults: GuardResult[]): GuardResult => {
     for (const result of guardResults) {
         if (result.isErr) return result;
     }
