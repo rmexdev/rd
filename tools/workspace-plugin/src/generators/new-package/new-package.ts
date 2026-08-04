@@ -5,12 +5,12 @@ import {
     type Tree,
 } from '@nx/devkit';
 import * as path from 'path';
-import type { BunLibGeneratorSchema } from './schema.js';
+import type { LibGeneratorSchema } from './schema.js';
 import { libraryGenerator } from '@nx/js';
 
 export async function NewPackageGenerator(
     tree: Tree,
-    options: BunLibGeneratorSchema,
+    options: LibGeneratorSchema,
 ) {
 
     const projectRoot = `${options.directory}`;

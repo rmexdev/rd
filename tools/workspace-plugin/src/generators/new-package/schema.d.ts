@@ -1,4 +1,4 @@
-export interface BunLibGeneratorSchema {
+export interface LibGeneratorSchema {
     name: string;
     directory: string,
 }

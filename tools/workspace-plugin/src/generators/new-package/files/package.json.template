@@ -9,7 +9,7 @@
         "build": "pkgroll",
         "serve": "tsx ./src/index.ts",
         "dev": "tsx watch ./src/index.ts",
-        "test": "vitest",
+        "test": "pnpm typecheck && vitest",
         "typecheck": "tsc --noEmit"
     },
     "exports": {
