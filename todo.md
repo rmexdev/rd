@@ -1,5 +1,6 @@
 - correct error handling
-- application or usecases as folder and file names
+- to use "application" or "usecases" as the terminology throughout the codebase
+- how to enforce file names after the dot (.entity.ts and .intf.ts) and not (.ent.ts or .interface.ts)
 - how to export only specific types, what is d.ts. What is the exports property in package.json for
 - add script to run lint command before every commit
 - create a template for monorepo by removing domain specific packages from this repo
