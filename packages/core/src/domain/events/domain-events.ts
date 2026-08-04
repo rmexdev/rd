@@ -1,6 +1,6 @@
 import type { IDomainEvent } from './domain-event.intf.ts';
 import { AggregateRoot } from '../aggregate-root.ts';
-import type { AnyIdentifier } from '../identifier.ts';
+import type { IdentifierAny } from '../identifier.ts';
 
 type Callback = (event: IDomainEvent) => void;
 
@@ -44,7 +44,7 @@ export class DomainEvents {
     }
 
     private static findMarkedAggregateByID(
-        id: AnyIdentifier,
+        id: IdentifierAny,
     ): AggregateRoot<unknown> | null {
         let found: AggregateRoot<unknown> | null = null;
         for (const aggregate of this.markedAggregates) {
@@ -56,7 +56,7 @@ export class DomainEvents {
         return found;
     }
 
-    public static dispatchEventsForAggregate(id: AnyIdentifier): void {
+    public static dispatchEventsForAggregate(id: IdentifierAny): void {
         const aggregate = this.findMarkedAggregateByID(id);
 
         if (aggregate) {

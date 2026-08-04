@@ -1,6 +1,6 @@
 
-import { IDomainEvent } from "./domain-event.intf.ts";
+import { type IDomainEvent } from "./domain-event.intf.ts";
 
-export interface IHandle<IDomainEvent> {
+export interface IHandle<T extends IDomainEvent> {
   setupSubscriptions(): void;
 }

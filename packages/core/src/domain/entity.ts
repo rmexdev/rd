@@ -1,14 +1,14 @@
-import type { AnyIdentifier } from './identifier.ts';
+import type { IdentifierAny } from './identifier.ts';
 
 const isEntity = (v: unknown): v is Entity<unknown> => {
     return v instanceof Entity;
 };
 
 export abstract class Entity<T> {
-    protected readonly _id: AnyIdentifier;
+    protected readonly _id: IdentifierAny;
     public readonly props: T;
 
-    constructor(props: T, id: AnyIdentifier) {
+    constructor(props: T, id: IdentifierAny) {
         this._id = id;
         this.props = props;
     }

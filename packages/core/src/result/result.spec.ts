@@ -1,9 +1,9 @@
 import { assertType, describe, expect, it } from 'vitest';
 import { type Result, type Ok, type Err, ok, err, combine } from './result.ts';
-import type { AppErr } from '../errors/err.base.ts';
+import type { ErrAny } from '../errors/err.base.ts';
 
 describe('Result', () => {
-    const GenericError: AppErr = { code: "GENERIC_ERROR", message: "generic error message"}
+    const GenericError: ErrAny = { code: "GENERIC_ERROR", message: "generic error message"}
 
     describe('creation', () => {
         it('should return value on success with Ok type', () => {
@@ -20,12 +20,12 @@ describe('Result', () => {
 
             expect(result.isErr).toBe(true);
             expect(result.err.message).toBe(GenericError.message);
-            assertType<Err<AppErr>>(result);
+            assertType<Err<ErrAny>>(result);
         });
     });
 
     describe('combine', () => {
-        const results: Array<Result<unknown, AppErr>> = [
+        const results: Array<Result<unknown, ErrAny>> = [
             ok(22),
             ok("text"),
             ok(true),

@@ -1,3 +1,5 @@
+- correct error handling
+- application or usecases as folder and file names
 - how to export only specific types, what is d.ts. What is the exports property in package.json for
 - add script to run lint command before every commit
 - create a template for monorepo by removing domain specific packages from this repo
