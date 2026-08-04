@@ -84,7 +84,11 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
 
-  packages/gtd: {}
+  packages/gtd:
+    dependencies:
+      '@rd/core':
+        specifier: workspace:*
+        version: link:../core
 
 packages:
 

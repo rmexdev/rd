@@ -10,13 +10,18 @@
         "typecheck": "tsc -b --noEmit"
     },
     "exports": {
-        ".": {
-            "types": "./src/index.ts",
-            "import": "./src/index.ts",
-            "default": "./src/index.ts",
-            "result": "./src/result/index.ts"
+        "./result": {
+            "types": "./src/result/index.ts",
+            "import": "./src/result/index.ts"
         },
-        "./package.json": "./package.json"
+        "./guard": {
+            "types": "./src/guard/index.ts",
+            "import": "./src/guard/index.ts"
+        },
+        "./errors": {
+            "types": "./src/errors/index.ts",
+            "import": "./src/errors/index.ts"
+        }
     },
     "dependencies": {
         "shallow-equal-object": "^1.1.1"
