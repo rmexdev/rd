@@ -2,7 +2,7 @@ import { shallowEqual } from 'shallow-equal-object';
 
 type ValueObjectProps = {
     [index: string]: unknown;
-}
+};
 
 /**
  * @desc ValueObjects are objects that we determine their

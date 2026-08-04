@@ -26,4 +26,4 @@ export class Identifier<T extends string | number> {
     }
 }
 
-export type IdentifierAny = Identifier<any>;
+export type IdentifierAny = Identifier<string | number>;

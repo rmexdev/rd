@@ -1,1 +1,1 @@
-export * from "./infra-errors.ts";
+export * from './infra-errors.ts';

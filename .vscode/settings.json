@@ -6,8 +6,6 @@
     "js/ts.format.semicolons": "insert",
     "js/ts.tsdk.path": "node_modules/typescript/lib",
     "js/ts.preferences.importModuleSpecifierEnding": "js",
-    "eslint.validate": [
-        "json"
-    ],
+    "eslint.validate": ["json"],
     "cSpell.enabled": false
 }

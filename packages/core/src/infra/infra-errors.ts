@@ -1,8 +1,10 @@
-import { type ErrAny } from "../errors/index.ts";
+import { type ErrAny } from '../errors/index.ts';
 
-export const internalServerError = (message: string = "Internal Server Error"): ErrAny => {
+export const internalServerError = (
+    message = 'Internal Server Error',
+): ErrAny => {
     return {
-        code: "internal-server-error",
-        message: message
-    }
-}
+        code: 'internal-server-error',
+        message: message,
+    };
+};

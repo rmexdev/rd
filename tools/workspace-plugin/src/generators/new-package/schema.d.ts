@@ -1,4 +1,4 @@
 export interface LibGeneratorSchema {
     name: string;
-    directory: string,
+    directory: string;
 }
