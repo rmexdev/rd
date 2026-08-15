@@ -1,11 +1,11 @@
 import { type ErrBase } from '../error/index.ts';
 
-export const GuardCodes = {
+export const GuardErrCode = {
     ArgumentNullOrUndefined: 'guard.argument-null-or-undefined',
     ArgumentEmptyString: 'guard.argument-empty-string',
     ArgumentNotOneOf: 'guard.argument-not-one-of',
     ArgumentNotInRange: 'guard.argument-not-in-range',
-    ArgumentNotGreaterThan: 'guard.argument-greater-than',
+    ArgumentNotGreaterThan: 'guard.argument-not-greater-than',
     ArgumentNotGreaterThanOrEqualTo:
         'guard.argument-not-greater-than-or-equal-to',
     ArgumentNotLessThan: 'guard.argument-not-less-than',
@@ -13,23 +13,23 @@ export const GuardCodes = {
     ArgumentNotAllInRange: 'guard.argument-not-all-in-range',
 } as const;
 
-export type GuardCodes = (typeof GuardCodes)[keyof typeof GuardCodes];
-export type GuardErr = ErrBase<GuardCodes>;
+export type GuardErrCode = (typeof GuardErrCode)[keyof typeof GuardErrCode];
+export type GuardErr = ErrBase<GuardErrCode>;
 
-const guardErr = (code: GuardCodes, message: string): GuardErr => ({
+const guardErr = (code: GuardErrCode, message: string): GuardErr => ({
     code,
     message,
 });
 
 export const argumentNullOrUndefinedErr = (argumentName: string): GuardErr =>
     guardErr(
-        'guard.argument-null-or-undefined',
+        GuardErrCode.ArgumentNullOrUndefined,
         `${argumentName} is null or undefined`,
     );
 
 export const argumentEmptyStringErr = (argumentName: string): GuardErr =>
     guardErr(
-        'guard.argument-empty-string',
+        GuardErrCode.ArgumentEmptyString,
         `${argumentName} is an empty string`,
     );
 
@@ -39,7 +39,7 @@ export const argumentNotOneOfErr = (
     value: unknown,
 ): GuardErr =>
     guardErr(
-        'guard.argument-not-one-of',
+        GuardErrCode.ArgumentNotOneOf,
         `${argumentName} isn't oneOf the correct types in ${JSON.stringify(validValues)}. Got "${value}".`,
     );
 
@@ -49,7 +49,7 @@ export const argumentNotInRangeErr = (
     max: number,
 ): GuardErr =>
     guardErr(
-        'guard.argument-not-one-of',
+        GuardErrCode.ArgumentNotInRange,
         `${argumentName} is not within range ${min} to ${max}.`,
     );
 
@@ -58,7 +58,7 @@ export const argumentNotGreaterThanErr = (
     minValue: number,
 ): GuardErr =>
     guardErr(
-        'guard.argument-greater-than',
+        GuardErrCode.ArgumentNotGreaterThan,
         `${argumentName} must be greater than ${minValue}.`,
     );
 
@@ -67,7 +67,7 @@ export const argumentNotGreaterThanOrEqualToErr = (
     minValue: number,
 ): GuardErr =>
     guardErr(
-        'guard.argument-not-greater-than-or-equal-to',
+        GuardErrCode.ArgumentNotGreaterThanOrEqualTo,
         `${argumentName} must be at least ${minValue}.`,
     );
 
@@ -76,7 +76,7 @@ export const argumentNotLessThanErr = (
     maxValue: number,
 ): GuardErr =>
     guardErr(
-        'guard.argument-not-less-than',
+        GuardErrCode.ArgumentNotLessThan,
         `${argumentName} must be less than ${maxValue}.`,
     );
 
@@ -85,12 +85,12 @@ export const argumentNotLessThanOrEqualToErr = (
     minValue: number,
 ): GuardErr =>
     guardErr(
-        'guard.argument-not-less-than-or-equal-to',
+        GuardErrCode.ArgumentNotGreaterThanOrEqualTo,
         `${argumentName} must be at least ${minValue}.`,
     );
 
 export const argumentNotAllInRangeErr = (argumentName: string): GuardErr =>
     guardErr(
-        'guard.argument-not-all-in-range',
+        GuardErrCode.ArgumentNotAllInRange,
         `${argumentName} is not within the range.`,
     );
