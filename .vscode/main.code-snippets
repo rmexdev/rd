@@ -12,7 +12,7 @@
             "    static create (id: string): $1Result {",
             "        const guardResult = againstEmptyString(id, 'id');",
             "        if (guardResult.isErr) {",
-            "            return err(guardResult.message);",
+            "            return err(guardResult.err);",
             "        }",
             "    ",
             "        return ok(new $1(id));",
@@ -68,7 +68,7 @@
         "prefix": "vo",
         "body": [
             "import { type Result, ok, err } from '@rd/core/result';",
-            "import { againstNullOrUndefined } from '@rd/core/guard;",
+            "import { againstNullOrUndefined } from '@rd/core/guard';",
             "import { ValueObject } from '@rd/core/domain';",
             "",
             "export type ${TM_FILENAME_BASE/^(.*?)\\..*/${1:/pascalcase}/}Props = {",
@@ -81,7 +81,7 @@
             "    static create (props: ${TM_FILENAME_BASE/^(.*?)\\..*/${1:/pascalcase}/}Props): ${TM_FILENAME_BASE/^(.*?)\\..*/${1:/pascalcase}/}Result {",
             "        const guardResult = againstNullOrUndefined(props.value, 'value');",
             "        if (guardResult.isErr) {",
-            "            return err(guardResult.message);",
+            "            return err(guardResult.err);",
             "        }",
             "    ",
             "        return ok(new ${TM_FILENAME_BASE/^(.*?)\\..*/${1:/pascalcase}/}(props));",
@@ -127,10 +127,23 @@
         ],
         "description": "Guard Result snippet",
     },
-    "Append orError after variables": {
+    "const with orErr": {
         "scope": "typescript",
-        "prefix": "or",
-        "body": ["$0OrError$1"],
+        "prefix": "cor",
+        "body": ["const $1OrErr: Result<$2,$3> = $4"],
+        "description": "Result fail snippet",
+    },
+    "Err Codes": {
+        "scope": "typescript",
+        "prefix": "errcode",
+        "body": [
+            "export const $1ErrCode = {",
+            "    $2",
+            "} as const;",
+            "",
+            "export type $1ErrCode = (typeof $1ErrCode)[keyof typeof $1ErrCode];",
+            "export type $1Err = ErrBase<$1ErrCode>;",
+        ],
         "description": "Result fail snippet",
     },
 }
