@@ -6,11 +6,13 @@ const isEntity = (v: unknown): v is Entity<unknown> => {
 
 export abstract class Entity<T> {
     protected readonly _id: IdentifierAny;
+    // public readonly created: Temporal.ZonedDateTime;
     public readonly props: T;
 
     constructor(props: T, id: IdentifierAny) {
         this._id = id;
         this.props = props;
+        // this.created = Temporal.Now.zonedDateTimeISO()
     }
 
     public equals(object?: Entity<T>): boolean {

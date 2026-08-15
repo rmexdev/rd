@@ -22,9 +22,13 @@
             "types": "./src/guard/index.ts",
             "import": "./src/guard/index.ts"
         },
-        "./errors": {
-            "types": "./src/errors/index.ts",
-            "import": "./src/errors/index.ts"
+        "./error": {
+            "types": "./src/error/index.ts",
+            "import": "./src/error/index.ts"
+        },
+        "./test": {
+            "types": "./src/test/index.ts",
+            "import": "./src/test/index.ts"
         }
     },
     "dependencies": {
