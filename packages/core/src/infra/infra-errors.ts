@@ -1,4 +1,4 @@
-import { type ErrAny } from '../errors/index.ts';
+import { type ErrAny } from '../error/index.ts';
 
 export const internalServerError = (
     message = 'Internal Server Error',

@@ -1,4 +1,4 @@
-import { type ErrBase } from '../errors/index.ts';
+import { type ErrBase } from '../error/index.ts';
 
 export const GuardCodes = {
     ArgumentNullOrUndefined: 'guard.argument-null-or-undefined',

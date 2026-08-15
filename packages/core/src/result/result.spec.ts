@@ -1,6 +1,6 @@
 import { assertType, describe, expect, it } from 'vitest';
 import { type Result, type Ok, type Err, ok, err, combine } from './result.ts';
-import type { ErrAny } from '../errors/err.base.ts';
+import type { ErrAny } from '../error/err.base.ts';
 
 describe('Result', () => {
     const GenericError: ErrAny = {

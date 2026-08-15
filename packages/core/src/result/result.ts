@@ -1,4 +1,4 @@
-import type { ErrAny } from '../errors/index.ts';
+import type { ErrAny } from '../error/index.ts';
 
 export type Ok<T> = { isOk: true; isErr: false; value: T };
 export type Err<E extends ErrAny> = { isOk: false; isErr: true; err: E };
