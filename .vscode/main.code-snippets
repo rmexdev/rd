@@ -4,9 +4,9 @@
         "prefix": "id",
         "body": [
             "import { type Result, ok, err } from '@rd/core/result';",
-            "import { againstEmptyString } from '@rd/core/guard';",
+            "import { againstEmptyString, type GuardErr } from '@rd/core/guard';",
             "",
-            "export type $1Result = Result<$1>;",
+            "export type $1Result = Result<$1, GuardErr>;",
             "",
             "export class $1 extends Identifier<string> {",
             "    static create (id: string): $1Result {",
