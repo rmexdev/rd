@@ -1,7 +1,7 @@
 import { type Result, ok, err } from '@rd/core/result';
 import { againstNullOrUndefinedBulk, type GuardErr } from '@rd/core/guard';
 import { Entity } from '@rd/core/domain';
-import type { ItemId } from './item-id.ts';
+import type { ItemId } from './item.id.ts';
 import type { ItemContent } from './item-content.vo.ts';
 import type { ErrBase } from '@rd/core/error';
 

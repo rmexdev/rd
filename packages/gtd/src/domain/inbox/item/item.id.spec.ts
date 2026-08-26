@@ -1,4 +1,4 @@
-import { ItemId } from './item-id.ts';
+import { ItemId } from './item.id.ts';
 import { describe, expect, it } from 'vitest';
 
 export const getValidItemId = (itemId = 'any-id'): ItemId => {
