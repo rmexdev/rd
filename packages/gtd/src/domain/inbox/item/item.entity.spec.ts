@@ -10,7 +10,7 @@ import { getValidItemId } from './item-id.spec.ts';
 import type { Result } from '@rd/core/result';
 import { assertIsErr, assertIsOk } from '@rd/core/test';
 
-const getValidItem = (props?: ItemProps): Item => {
+export const getValidItem = (props?: ItemProps): Item => {
     const content = getItemContent();
     const itemProps: ItemProps = props || {
         content,
@@ -22,6 +22,15 @@ const getValidItem = (props?: ItemProps): Item => {
     if (itemOrErr.isErr) throw new Error(itemOrErr.err.message);
 
     return itemOrErr.value;
+};
+
+export const getClarifiedItem = (
+    clarifiedContentString = 'clarified content',
+) => {
+    return getValidItem({
+        content: getItemContent('any content'),
+        clarifiedContent: getItemContent(clarifiedContentString),
+    });
 };
 
 describe('item.entity', () => {

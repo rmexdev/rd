@@ -11,3 +11,5 @@
 - downloaded corepack globally with npm, then enabled and installed pnpm using corepack. Find out how to signify that this repo uses pnpm version 11. Consider creating a docker file for this
 - Use pkgroll to build packages wherever necessary. Uninstall if unneeded.
 - prettier doesn't preserve indentation on empty lines, look how to bypass this, so it is easier to read code blocks
+- make `vitest --typecheck` work, option already included in config, try adding nx/vitest and then making it work
+- create base service class

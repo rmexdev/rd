@@ -67,6 +67,8 @@ export class Item extends Entity<ItemProps> {
         return this.clarifiedContent.isNotEmpty();
     }
 
+    isNotClarified(): boolean;
+
     clarify(newClarifiedContent: ItemContent): Result<true, ItemErr> {
         if (this.isClarified()) return err(itemAlreadyClarifiedErr(this.id));
 
