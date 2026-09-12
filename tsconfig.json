@@ -14,6 +14,9 @@
         },
         {
             "path": "./clients/stickier-notes"
+        },
+        {
+            "path": "./packages/gtd"
         }
     ]
 }

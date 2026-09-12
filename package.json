@@ -4,10 +4,12 @@
     "license": "MIT",
     "scripts": {
         "dev": "pnpm --filter core run dev",
-        "test": "pnpm --filter core run test",
-        "lint": "eslint --fix . && prettier --write .",
+        "test": "pnpm typecheck && vitest",
+        "typecheck": "tsc -b --noEmit",
+        "lint": "eslint --fix && prettier --write",
         "new-package": "f() { nx g @rd/workspace-plugin:new-package packages/$1; }; f",
-        "reset-node-modules": "./tools/scripts/reset-node-modules.sh"
+        "reset-node-modules": "./tools/scripts/reset-node-modules.sh",
+        "prepare": "husky"
     },
     "private": true,
     "devDependencies": {
@@ -37,14 +39,9 @@
         "@vitest/ui": "~4.1.0",
         "eslint": "^9.8.0",
         "eslint-config-prettier": "^10.0.0",
-        "eslint-plugin-import": "2.31.0",
-        "eslint-plugin-jsx-a11y": "6.10.1",
-        "eslint-plugin-playwright": "^1.6.2",
-        "eslint-plugin-react": "7.35.0",
-        "eslint-plugin-react-hooks": "5.0.0",
-        "jiti": "2.4.2",
-        "jsdom": "~22.1.0",
+        "husky": "^9.1.7",
         "jsonc-eslint-parser": "^2.1.0",
+        "lint-staged": "^17.3.0",
         "nx": "22.6.5",
         "pkgroll": "^2.27.1",
         "prettier": "~3.6.2",
@@ -54,6 +51,9 @@
         "typescript-eslint": "^8.40.0",
         "vite": "^8.0.0",
         "vitest": "^4.1.10"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx,md,html,css}": "pnpm lint"
     },
     "workspaces": [
         "packages/*",
