@@ -8,6 +8,7 @@ export default [
         ignores: [
             '**/dist',
             '**/out-tsc',
+            '**/src-tauri/target',
             '**/vite.config.*.timestamp*',
             '**/vitest.config.*.timestamp*',
             '**/test-output',
