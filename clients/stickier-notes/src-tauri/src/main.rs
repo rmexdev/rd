@@ -1,45 +1,44 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-// use tauri::WebviewWindowBuilder;
 use active_win_pos_rs::get_active_window;
 
 fn main() {
-  match get_active_window() {
-    Ok(active_window) => {
-      println!("active window: {:#?}", active_window)
-    }
-    Err(()) => {
-      println!("error occured")
-    }
-  }
+    tauri::Builder::default()
+        .setup(|app| {
+            #[cfg(desktop)]
+            {
+                use tauri_plugin_global_shortcut::{
+                    Code, GlobalShortcutExt, Modifiers, Shortcut, ShortcutState,
+                };
+                let meta_space_shortcut = Shortcut::new(Some(Modifiers::META), Code::Space);
+                app.handle().plugin(
+                    tauri_plugin_global_shortcut::Builder::new()
+                        .with_handler(move |app, shortcut, event| {
+                            if shortcut == &meta_space_shortcut
+                                && event.state() == ShortcutState::Released
+                            {
+                                use tauri::Manager;
+                                if let Some(floating_window) = app.get_webview_window("notes") {
+                                    let is_visible = floating_window.is_visible().unwrap_or(false);
 
-  tauri::Builder::default()
-    .setup(|app| {
-      if cfg!(debug_assertions) {
-        app.handle().plugin(
-          tauri_plugin_log::Builder::default()
-            .level(log::LevelFilter::Info)
-            .build(),
-        )?;
-      }
-      Ok(())
-    })
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+                                    if is_visible {
+                                        let _ = floating_window.hide();
+                                    } else {
+                                        let active_window = get_active_window();
+                                        println!("active window: {:#?}", active_window);
+                                        let _ = floating_window.show();
+                                        let _ = floating_window.set_focus();
+                                    }
+                                }
+                            }
+                        })
+                        .build(),
+                )?;
+                app.global_shortcut().register(meta_space_shortcut)?;
+            }
+            Ok(())
+        })
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
 }
-
-// fn generate_context() -> tauri::Context {
-//   let mut context = tauri::generate_context!("../tauri.conf.json");
-//   for cmd in [
-//     "plugin:event|listen",
-//     "plugin:event|emit",
-//     "plugin:event|emit_to",
-//     "plugin:webview|create_webview_window",
-//   ] {
-//     context
-//       .runtime_authority_mut()
-//       .__allow_command(cmd.to_string(), tauri_utils::acl::ExecutionContext::Local);
-//   }
-//   context
-// }
