@@ -30,7 +30,7 @@
         "fullscreen": false,
         "alwaysOnTop": true,
         "decorations": false,
-        "url": "notes.html",
+        "url": "note.html",
         "visible": false
       }
     ],
