@@ -13,7 +13,7 @@
     "windows": [
       {
         "title": "Manager",
-        "label": "main",
+        "label": "manager",
         "width": 800,
         "height": 600,
         "resizable": true,
@@ -22,7 +22,7 @@
       },
       {
         "title": "Stickier Notes",
-        "label": "notes",
+        "label": "note",
         "width": 800,
         "height": 600,
         "center": true,

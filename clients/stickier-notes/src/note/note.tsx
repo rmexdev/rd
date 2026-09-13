@@ -1,8 +1,24 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
+import { useEffect, useState } from 'react';
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 
 export function Note() {
-    return <div>Write your note here!</div>;
+    const [title, setTitle] = useState<string>('Placeholder...');
+
+    useEffect(() => {
+        const noteWebView = getCurrentWebviewWindow();
+        const unlistenPromise = noteWebView.listen<string>(
+            'update-title',
+            (event) => {
+                setTitle(event.payload);
+            },
+        );
+
+        return () => {
+            unlistenPromise.then((unlisten) => unlisten());
+        };
+    }, []);
+
+    return <div>{title}</div>;
 }
 
 export default Note;
