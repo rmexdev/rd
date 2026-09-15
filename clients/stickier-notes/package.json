@@ -9,5 +9,9 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build"
+    },
+    "dependencies": {
+        "@codemirror/lang-markdown": "^6.5.2",
+        "@uiw/react-codemirror": "^4.25.11"
     }
 }
