@@ -1,9 +1,26 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use std::fs::write;
+
 use active_win_pos_rs::get_active_window;
+use serde::Serialize;
+use tauri::generate_handler;
 use tauri::Emitter;
 use tauri::Manager;
+
+#[derive(Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct Note {
+    title: String,
+    content: String,
+}
+
+#[tauri::command]
+async fn save_note_content(content: String) {
+    println!("save content: {:#?}", content);
+    let _ = write("/home/rmex/Repos/rd/todo.md", content);
+}
 
 fn main() {
     tauri::Builder::default()
@@ -24,18 +41,27 @@ fn main() {
                                     let is_visible = floating_window.is_visible().unwrap_or(false);
 
                                     if is_visible {
+                                        let _ = _app.emit_to("note", "note-close", "");
                                         let _ = floating_window.hide();
                                     } else {
+                                        use std::fs::read_to_string;
+
                                         let active_window = get_active_window();
                                         println!("active window: {:#?}", active_window);
                                         // floating_window.set_title(active_window.unwrap().title);
+                                        let file_contents =
+                                            read_to_string("/home/rmex/Repos/rd/todo.md").unwrap();
+                                        // println!("{:#?}", file_contents);
                                         let _ = floating_window.show();
                                         let _ = floating_window.set_focus();
                                         let _ = _app
                                             .emit_to(
                                                 "note",
-                                                "update-title",
-                                                active_window.unwrap().title,
+                                                "note-open",
+                                                Note {
+                                                    title: active_window.unwrap().title,
+                                                    content: file_contents,
+                                                },
                                             )
                                             .unwrap();
                                     }
@@ -48,6 +74,7 @@ fn main() {
             }
             Ok(())
         })
+        .invoke_handler(generate_handler![save_note_content])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

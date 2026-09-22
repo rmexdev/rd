@@ -12,5 +12,6 @@
     "cSpell.enabled": false,
     "rust-analyzer.linkedProjects": [
         "clients/stickier-notes/src-tauri/Cargo.toml"
-    ]
+    ],
+    "js/ts.suggest.completeFunctionCalls": true
 }
