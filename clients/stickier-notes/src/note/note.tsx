@@ -44,16 +44,19 @@ export function Note() {
             <ReactCodeMirror
                 value={content}
                 onChange={setContent}
+                style={{
+                    height: '100%',
+                }}
                 basicSetup={{
                     lineNumbers: false,
                     foldGutter: false,
                 }}
                 autoFocus
-                // extensions={[
-                //     markdown({
-                //         base: markdownLanguage,
-                //     }),
-                // ]}
+                extensions={[
+                    markdown({
+                        base: markdownLanguage,
+                    }),
+                ]}
             />
         </>
     );
