@@ -40,7 +40,15 @@ export function Note() {
 
     return (
         <>
-            <div>{title}</div>
+            <div
+                style={{
+                    backgroundColor: 'orange',
+                    padding: '6px',
+                    textAlign: 'center',
+                }}
+            >
+                {title}
+            </div>
             <ReactCodeMirror
                 value={content}
                 onChange={setContent}
