@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@codemirror/lang-markdown": "^6.5.2",
+        "@uiw/codemirror-themes": "^4.25.12",
         "@uiw/react-codemirror": "^4.25.11"
     }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 import ReactCodeMirror from '@uiw/react-codemirror';
+import { createTheme } from '@uiw/codemirror-themes';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { invoke } from '@tauri-apps/api/core';
 
@@ -8,6 +9,14 @@ type NotePayload = {
     title: string;
     content: string;
 };
+
+const noteEditorTheme = createTheme({
+    theme: 'light',
+    settings: {
+        background: '#f6ff00',
+    },
+    styles: [],
+});
 
 export function Note() {
     const [title, setTitle] = useState<string>('Placeholder...');
@@ -52,6 +61,7 @@ export function Note() {
             <ReactCodeMirror
                 value={content}
                 onChange={setContent}
+                theme={noteEditorTheme}
                 style={{
                     height: '100%',
                 }}
