@@ -3,11 +3,11 @@ import { describe, beforeEach, it, expect } from 'vitest';
 import { type Tree, readProjectConfiguration } from '@nx/devkit';
 
 import { NewPackageGenerator } from './new-package.ts';
-import type { BunLibGeneratorSchema } from './schema.js';
+import type { LibGeneratorSchema } from './schema.js';
 
 describe.only('new-package generator', () => {
     let tree: Tree;
-    const options: BunLibGeneratorSchema = {
+    const options: LibGeneratorSchema = {
         name: 'test',
         directory: 'packages/test',
     };

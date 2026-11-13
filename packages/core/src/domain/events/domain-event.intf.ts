@@ -1,6 +1,6 @@
-import { UniqueEntityID } from '../../../core/domain/UniqueEntityID';
+import { type IdentifierAny } from '../identifier.ts';
 
 export interface IDomainEvent {
     dateTimeOccurred: Date;
-    getAggregateId(): UniqueEntityID;
+    getAggregateId(): IdentifierAny;
 }

@@ -1,13 +1,17 @@
 {
+    "editor.formatOnSave": true,
     "prettier.endOfLine": "lf",
     "prettier.tabWidth": 4,
     "editor.tabSize": 4,
     "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
     "js/ts.format.semicolons": "insert",
     "js/ts.tsdk.path": "node_modules/typescript/lib",
     "js/ts.preferences.importModuleSpecifierEnding": "js",
-    "eslint.validate": [
-        "json"
+    "eslint.validate": ["json"],
+    "cSpell.enabled": false,
+    "rust-analyzer.linkedProjects": [
+        "clients/stickier-notes/src-tauri/Cargo.toml"
     ],
-    "cSpell.enabled": false
+    "js/ts.suggest.completeFunctionCalls": true
 }

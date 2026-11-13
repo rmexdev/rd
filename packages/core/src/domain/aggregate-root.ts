@@ -1,12 +1,12 @@
 import { Entity } from './entity.ts';
 import type { IDomainEvent } from './events/domain-event.intf.ts';
 import { DomainEvents } from './events/domain-events.ts';
-import type { AnyIdentifier } from './identifier.ts';
+import type { IdentifierAny } from './identifier.ts';
 
 export abstract class AggregateRoot<T> extends Entity<T> {
     private _domainEvents: IDomainEvent[] = [];
 
-    get id(): AnyIdentifier {
+    get id(): IdentifierAny {
         return this._id;
     }
 
